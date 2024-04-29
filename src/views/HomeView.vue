@@ -1,9 +1,10 @@
 <template>
   <main>
-    <TheWelcome />
+    <ListeProduit />
   </main>
+  
 </template>
 
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+import ListeProduit from '../components/ListeProduit.vue'
 </script>
