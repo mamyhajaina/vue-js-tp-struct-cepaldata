@@ -10,7 +10,7 @@ class TutorialDataService {
   }
 
   create(data: any) {
-    return http.post("/tutorials", data);
+    return http.post("/listing-company", data);
   }
 
   update(id: any, data: any) {

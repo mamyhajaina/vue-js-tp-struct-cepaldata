@@ -3,9 +3,12 @@
   <div>
     <h1>Détails du Produit</h1>
     <p>Product ID: {{ productId }}</p>
-    <input type="text" :value="product['Company Name']"><br>
-    <textarea type="text" :value="product.About"></textarea><br>
-    <button @click="confirm()">Valider</button>
+    <form @submit.prevent="onSubmit">
+      <input type="text" :value="product['Company Name']"><br>
+      <textarea type="text" :value="product.About"></textarea><br>
+      <button @click="confirm()" :disabled="isButtonDisabled">Valider</button><br>
+    </form>
+    <a :href="urlPrecedent">R</a>
   </div>
 </template>
 
@@ -18,6 +21,8 @@ import Product from '@/models/Product';
 const productId = ref<any>(0);
 const product = ref<Product>({});
 const route = useRoute();
+const isButtonDisabled = ref(true);
+const urlPrecedent = ref('/');
 
 onMounted(async () => {
   productId.value = route.params.id;
@@ -37,14 +42,12 @@ const getById = async(productId: any)=>{
 
 const confirm = ()=>{
   console.log('confirm');
-  
   showPopu();
 }
 
 const showPopu = ()=>{
   console.log('showPopu');
 }
-
 </script>
 
 
